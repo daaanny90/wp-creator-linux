@@ -8,6 +8,8 @@ DBPASSWORD="root"
 
 # create, if not exists, public_html directory
 mkdir -p /home/${CURRENTUSER}/public_html
+chown -R ${CURRENTUSER}: /home/${CURRENTUSER}/public_html
+chmod -R u+w /home/${CURRENTUSER}/public_html
 
 # get project name
 echo "Name of the new Project?"
@@ -18,8 +20,8 @@ echo
 echo "1# Creating files..."
 mkdir /home/${CURRENTUSER}/public_html/${WPNAME}
 WPPATH=/home/${CURRENTUSER}/public_html/${WPNAME}
-chown ${CURRENTUSER}: ${WPPATH}
-chmod u+w ${WPPATH}
+chown -R ${CURRENTUSER}: ${WPPATH}
+chmod -R u+w ${WPPATH}
 echo
 echo "2# Creating virtual host..."
 VHOSTS="/etc/httpd/conf/extra/httpd-vhosts.conf"
